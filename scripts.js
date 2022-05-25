@@ -21,19 +21,11 @@ const fishiesTeamList = [
 ];
 
 const createUniqueFishyPairs = (fishies) => {
-  let fishyPairArray = [];
-  // for each fishy create a pair
-  for (let i = 0; i < fishies.length; i++) {
-    fishyPairArray.push([]);
-
-    for (let j = 0; j < fishies.length; j++) {
-      // Dont include fishy paired with themselves
-      if (fishies[i] !== fishies[j]) {
-        fishyPairArray[i].push([fishies[i], fishies[j]]);
-      }
-    }
-  }
-  return fishyPairArray;
+  // returns object of unique pairings from array with a score key
+  const result = fishies.flatMap((v, i) =>
+    fishies.slice(i + 1).map((w) => ({ one: v, two: w, score: 0 }))
+  );
+  return result;
 };
 
 const createRandomizedGroups = (arr, numberOfGroups) => {
@@ -74,14 +66,34 @@ const groupsOne = [
   ["Zach", "Ebony", "Jami", "Chelsea", "Christopher"],
   ["Shawn", "Maggie", "Ryan", "Sam", "Griffin"],
   ["Alliyah", "Sarah", "Faith", "Caroline", "Claire", "Anne"],
-];
-
-const groupsTwo = [
+  ["Faith", "Maggie", "Jami", "Chelsea", "Christopher"],
+  ["Shawn", "Ebony", "Ryan", "Sam", "Claire"],
+  ["Alliyah", "Sarah", "Zach", "Caroline", "Griffin", "Anne"],
   ["Faith", "Maggie", "Jami", "Chelsea", "Christopher"],
   ["Shawn", "Ebony", "Ryan", "Sam", "Claire"],
   ["Alliyah", "Sarah", "Zach", "Caroline", "Griffin", "Anne"],
 ];
 
-let sampleShuffledGroups = createRandomizedGroups(fishiesTeamList, 3);
-let sampleFishyPairs = createUniqueFishyPairs(fishiesTeamList);
-console.log(sampleFishyPairs);
+const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
+
+const scoreGroupings = (groups, prevPairScore) => {
+  const currentScore = prevPairScore;
+  for (let i = 0; i < groups.length; i++) {
+    for (let j = 0; j < currentScore.length; j++) {
+      if (
+        groups[i].includes(currentScore[j].one) &&
+        groups[i].includes(currentScore[j].two)
+      ) {
+        currentScore[j].score += 1;
+      }
+    }
+  }
+  return currentScore;
+};
+console.log(fishyPairs);
+let groupScored = scoreGroupings(
+  groupsOne,
+  createUniqueFishyPairs(fishiesTeamList)
+);
+console.log(groupScored);
+console.log(fishyPairs);
