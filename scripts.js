@@ -9,11 +9,16 @@ const createUniqueFishyPairs = (fishies) => {
   return result;
 };
 
-const createRandomizedGroups = (arr, numberOfGroups) => {
-  const randomizedFishies = arr
+const randomizeList = (list) => {
+  const randomList = list
     .map((value) => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
+  return randomList;
+};
+
+const createRandomizedGroups = (teamList, numberOfGroups) => {
+  const randomizedFishies = randomizeList(teamList);
 
   const createdGroupsArray = [];
   let groupIterator = numberOfGroups;
@@ -43,9 +48,73 @@ const createRandomizedGroups = (arr, numberOfGroups) => {
   return createdGroupsArray;
 };
 
-const scorePairs = (groups, prevPairScore) => {
-  //create a deep copy of the array
-  const updatedScore = prevPairScore.map(a => {return {...a}});
+const createLowScoreGroups = (teamList, numberOfGroups, currentPairScore) => {
+  // Takes list of members, number of groups, and the current pairing score and returns groups with the fewest repeat pairs
+  const createdGroupsArray = [];
+  let groupsTeamList = [...teamList];
+
+  let groupIterator = numberOfGroups;
+  while (groupIterator--) {
+    createdGroupsArray.push([]);
+  }
+
+  // copy and sort lowest score to highest
+  const sortedPairScore = currentPairScore
+    .map((a) => ({ ...a }))
+    .sort((a, b) => a.score - b.score);
+
+  let groupNum = 0;
+  while (groupsTeamList) {
+    // check if either exist in current group
+    // add to current group
+    let one = sortedPairScore[0].one;
+    let two = sortedPairScore[0].two;
+
+    console.log(groupsTeamList);
+    console.log(createdGroupsArray);
+
+    let includesOne = createdGroupsArray[groupNum].includes(one);
+    let includesTwo = createdGroupsArray[groupNum].includes(two);
+    console.log(includesOne);
+
+    if (!includesOne && groupsTeamList.includes(one)) {
+      // add to current group
+      createdGroupsArray[groupNum].push(sortedPairScore[0].one);
+      // remove from team list
+      groupsTeamList = groupsTeamList.filter(
+        (e) => e !== sortedPairScore[0].one
+      );
+    }
+    if (!includesTwo && groupsTeamList.includes(two)) {
+      // add to current group
+      createdGroupsArray[groupNum].push(sortedPairScore[0].two);
+      // remove from team list
+      groupsTeamList = groupsTeamList.filter(
+        (e) => e !== sortedPairScore[0].two
+      );
+      // remove from score list
+    }
+
+    if (groupsTeamList.length < 1) {
+      groupsTeamList = false;
+    }
+
+    sortedPairScore.shift();
+
+    // change current group
+    if (groupNum < numberOfGroups - 1) {
+      groupNum += 1;
+    } else {
+      groupNum = 0;
+    }
+  }
+
+  return createdGroupsArray;
+};
+
+const scoreGroups = (groups, prevPairScore) => {
+  // create a deep copy of the array
+  const updatedScore = prevPairScore.map((a) => ({ ...a }));
   for (let i = 0; i < groups.length; i++) {
     for (let j = 0; j < updatedScore.length; j++) {
       if (
@@ -58,7 +127,6 @@ const scorePairs = (groups, prevPairScore) => {
   }
   return updatedScore;
 };
-
 
 /* TESTING */
 
@@ -78,7 +146,7 @@ const fishiesTeamList = [
   "Sam",
   "Christopher",
   "Caroline",
-  "Jami",
+  //  "Jami",
 ];
 
 const testGroups = [
@@ -94,16 +162,17 @@ const testGroups = [
 ];
 
 const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
-const sampleRandom = createRandomizedGroups(fishiesTeamList, 3)
+const sampleRandom = createRandomizedGroups(fishiesTeamList, 3);
 
-
-let firstScore = scorePairs(
+const firstScore = scoreGroups(
   testGroups,
   createUniqueFishyPairs(fishiesTeamList)
 );
 
-let secondScore = scoreGroupings(sampleRandom, firstScore)
+const secondScore = scoreGroups(sampleRandom, firstScore);
+let thirdScore = secondScore
+  .map((a) => ({ ...a }))
+  .sort((a, b) => a.score - b.score);
 console.log(firstScore);
 console.log(sampleRandom);
-console.log(secondScore)
-
+console.log(secondScore);
