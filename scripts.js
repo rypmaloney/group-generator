@@ -1,25 +1,6 @@
 /* eslint-disable no-plusplus */
 console.log("working");
 
-const fishiesTeamList = [
-  "Anne",
-  "Alliyah",
-  "Faith",
-  "Griffin",
-  "Shawn",
-  "Zach",
-  "Ryan",
-  "Ebony",
-  "Claire",
-  "Maggie",
-  "Sarah",
-  "Chelsea",
-  "Sam",
-  "Christopher",
-  "Caroline",
-  "Jami",
-];
-
 const createUniqueFishyPairs = (fishies) => {
   // returns object of unique pairings from array with a score key
   const result = fishies.flatMap((v, i) =>
@@ -62,7 +43,45 @@ const createRandomizedGroups = (arr, numberOfGroups) => {
   return createdGroupsArray;
 };
 
-const groupsOne = [
+const scorePairs = (groups, prevPairScore) => {
+  //create a deep copy of the array
+  const updatedScore = prevPairScore.map(a => {return {...a}});
+  for (let i = 0; i < groups.length; i++) {
+    for (let j = 0; j < updatedScore.length; j++) {
+      if (
+        groups[i].includes(updatedScore[j].one) &&
+        groups[i].includes(updatedScore[j].two)
+      ) {
+        updatedScore[j].score += 1;
+      }
+    }
+  }
+  return updatedScore;
+};
+
+
+/* TESTING */
+
+const fishiesTeamList = [
+  "Anne",
+  "Alliyah",
+  "Faith",
+  "Griffin",
+  "Shawn",
+  "Zach",
+  "Ryan",
+  "Ebony",
+  "Claire",
+  "Maggie",
+  "Sarah",
+  "Chelsea",
+  "Sam",
+  "Christopher",
+  "Caroline",
+  "Jami",
+];
+
+const testGroups = [
   ["Zach", "Ebony", "Jami", "Chelsea", "Christopher"],
   ["Shawn", "Maggie", "Ryan", "Sam", "Griffin"],
   ["Alliyah", "Sarah", "Faith", "Caroline", "Claire", "Anne"],
@@ -78,23 +97,8 @@ const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
 const sampleRandom = createRandomizedGroups(fishiesTeamList, 3)
 
 
-const scoreGroupings = (groups, prevPairScore) => {
-  //create a deep copy of the array
-  const updatedScore = prevPairScore.map(a => {return {...a}});
-  for (let i = 0; i < groups.length; i++) {
-    for (let j = 0; j < updatedScore.length; j++) {
-      if (
-        groups[i].includes(updatedScore[j].one) &&
-        groups[i].includes(updatedScore[j].two)
-      ) {
-        updatedScore[j].score += 1;
-      }
-    }
-  }
-  return updatedScore;
-};
-let firstScore = scoreGroupings(
-  groupsOne,
+let firstScore = scorePairs(
+  testGroups,
   createUniqueFishyPairs(fishiesTeamList)
 );
 
