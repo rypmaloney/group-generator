@@ -75,25 +75,31 @@ const groupsOne = [
 ];
 
 const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
+const sampleRandom = createRandomizedGroups(fishiesTeamList, 3)
+
 
 const scoreGroupings = (groups, prevPairScore) => {
-  const currentScore = prevPairScore;
+  //create a deep copy of the array
+  const updatedScore = prevPairScore.map(a => {return {...a}});
   for (let i = 0; i < groups.length; i++) {
-    for (let j = 0; j < currentScore.length; j++) {
+    for (let j = 0; j < updatedScore.length; j++) {
       if (
-        groups[i].includes(currentScore[j].one) &&
-        groups[i].includes(currentScore[j].two)
+        groups[i].includes(updatedScore[j].one) &&
+        groups[i].includes(updatedScore[j].two)
       ) {
-        currentScore[j].score += 1;
+        updatedScore[j].score += 1;
       }
     }
   }
-  return currentScore;
+  return updatedScore;
 };
-console.log(fishyPairs);
-let groupScored = scoreGroupings(
+let firstScore = scoreGroupings(
   groupsOne,
   createUniqueFishyPairs(fishiesTeamList)
 );
-console.log(groupScored);
-console.log(fishyPairs);
+
+let secondScore = scoreGroupings(sampleRandom, firstScore)
+console.log(firstScore);
+console.log(sampleRandom);
+console.log(secondScore)
+
