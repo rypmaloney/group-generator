@@ -181,4 +181,4 @@ function sum(a, b) {
     return a + b;
 }
 
-export { sum, randomizeList };
+export { sum, randomizeList, createLowScoreGroups };
