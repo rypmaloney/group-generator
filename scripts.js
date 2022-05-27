@@ -70,8 +70,6 @@ const createLowScoreGroups = (teamList, numberOfGroups, currentPairScore) => {
     let one = sortedPairScore[0].one;
     let two = sortedPairScore[0].two;
 
-    console.log(groupsTeamList);
-    console.log(createdGroupsArray);
     let includesOne = createdGroupsArray[groupNum].includes(one);
     let includesTwo = createdGroupsArray[groupNum].includes(two);
 
@@ -164,24 +162,9 @@ const testGroups = [
   ["Alliyah", "Sarah", "Zach", "Caroline", "Sarah", "Anne"],
 ];
 
-const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
-const sampleRandom = createRandomizedGroups(fishiesTeamList, 3);
-
-const firstScore = scoreGroups(
-  testGroups,
-  createUniqueFishyPairs(fishiesTeamList)
-);
-
-const secondScore = scoreGroups(sampleRandom, firstScore);
-let thirdScore = secondScore
-  .map((a) => ({ ...a }))
-  .sort((a, b) => a.score - b.score);
-console.log(firstScore);
-console.log(sampleRandom);
-console.log(secondScore);
-
-function sum(a, b) {
-  return a + b;
-}
-
-export { sum, randomizeList, createLowScoreGroups };
+export {
+  randomizeList,
+  createUniqueFishyPairs,
+  scoreGroups,
+  createLowScoreGroups,
+};
