@@ -34,12 +34,12 @@ test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
 });
 
-test('does randomize list to return list create a list', () => {
-    let randomizeLength = randomizeList(fishiesTeamList).length;
-    let listLength = fishiesTeamList.length;
-    expect(randomizeLength).toBe(listLength);
+test('does randomize list to return list create a list that is not the same', () => {
+    let randomList = randomizeList(fishiesTeamList);
+    expect(fishiesTeamList).not.toBe(randomList);
 });
 
+/*
 //create unique fishy pairs 
 test('creates correct number of pairs', () => {
 
@@ -64,3 +64,4 @@ test('creates correct number of groups', () => {
 // groups are of equal size (thereabouts)
 
 // specific people who should not be put together
+*/
