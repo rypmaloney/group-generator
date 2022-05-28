@@ -3,18 +3,6 @@ console.log('working');
 
 const createLowScoreGroupsV1 = (teamList, numberOfGroups, currentPairScore) => {
     // Takes list of members, number of groups, and the current pairing score and returns groups with the fewest repeat pairs
-    const createdGroupsArray = [];
-    let groupsTeamList = [...teamList];
-
-    let groupIterator = numberOfGroups;
-    while (groupIterator--) {
-        createdGroupsArray.push([]);
-    }
-
-    // copy and sort lowest score to highest
-    const sortedPairScore = currentPairScore
-        .map((a) => ({ ...a }))
-        .sort((a, b) => a.score - b.score);
 
     let groupNum = 0;
     while (groupsTeamList) {

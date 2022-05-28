@@ -1,4 +1,4 @@
-import { testGroups, fishiesTeamList } from '../testGroups';
+import { testGroups, fishiesTeamList, smallGroups } from '../testGroups';
 
 import createLowScoreGroups from './createGroups';
 import { createUniqueFishyPairs, scoreGroups } from '../scoring/scoring';
@@ -19,7 +19,7 @@ test('creates correct number of groups', () => {
     expect(lowScoreGroups9.length).toBe(9);
     expect(lowScoreGroups4.length).toBe(4);
 });
-/*
+
 // groups are correct size
 test('groups are the correct size with 5 groups', () => {
     const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
@@ -39,17 +39,25 @@ test('groups are the correct size with 5 groups', () => {
 // specific people who should not be put together
 test('low score groups avoids unfavorable pairings based on score', () => {
     const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
-    const score = scoreGroups(testGroups, fishyPairs);
-    const lowScoreGroups = createLowScoreGroups(fishiesTeamList, 3, score);
+    const scores = scoreGroups(smallGroups, fishyPairs);
+    const lowScoreGroups = createLowScoreGroups(fishiesTeamList, 3, scores);
 
+    /* Find the worst pairs to update
+    const sortedPairScore = scores
+        .map((a) => ({ ...a }))
+        .sort((a, b) => b.score - a.score);
+    console.log(sortedPairScore);
+    ****** */
+
+    // Pairs with a score of 4 or 3
     const unfavorablePairsArray = [
-        { one: 'Anne', two: 'Alliyah' },
-        { one: 'Anne', two: 'Caroline' },
-        { one: 'Alliyah', two: 'Sarah' },
-        { one: 'Alliyah', two: 'Caroline' },
-        { one: 'Shawn', two: 'Ryan' },
-        { one: 'Ryan', two: 'Sam' },
-        { one: 'Shawn', two: 'Sam' },
+        { one: 'Ryan', two: 'Sarah' },
+        { one: 'Anne', two: 'Shawn' },
+        { one: 'Shawn', two: 'Sarah' },
+        { one: 'Ryan', two: 'Ebony' },
+        { one: 'Chelsea', two: 'Jami' },
+        { one: 'Christopher', two: 'Caroline' },
+        { one: 'Christopher', two: 'Jami' },
     ];
 
     let unfavorablePairsCount = 0;
@@ -68,4 +76,3 @@ test('low score groups avoids unfavorable pairings based on score', () => {
     }
     expect(unfavorablePairsCount).toBe(0);
 });
-*/
