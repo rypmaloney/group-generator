@@ -1,0 +1,19 @@
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@300;400&display=swap');
+
+$body-font: Roboto, sans-serif;
+$header-font: Poppins, helvetica, sans-serif;
+$primary-color: rgb(23, 42, 75);
+
+
+body {
+  margin: 0;
+  font-family: $body-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
