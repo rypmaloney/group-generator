@@ -3,6 +3,7 @@ const TeamMember = (props) => {
   return (
     <div className="team-member">
       <p>{teamMember}</p>
+      <div className="delete">x</div>
     </div>
   );
 };

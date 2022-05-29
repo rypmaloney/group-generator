@@ -1,10 +1,41 @@
+@import '/src/index.scss';
+
 .team-list {
-    margin: 2em;
+    margin: 0 2em;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 3px;
+
 }
 
-@media (max-width: 360px) { 
+.team-member{
+    
+    background-color: rgb(230, 233, 239);
+    padding: .2em;
+    margin: .2em;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.team-member p {
+    margin: auto;
+}
+
+.delete{
+    margin: 0 .5em;
+
+}
+.delete:hover{
+    cursor: pointer;
+    color: rgb(142, 138, 138);
+
+}
+
+@media (max-width: $mobile-query) { 
     .team-list {
         margin: auto;
+
     }
   }
   

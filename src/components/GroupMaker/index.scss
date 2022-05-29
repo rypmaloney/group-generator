@@ -1,20 +1,42 @@
+@import '/src/index.scss';
+
 .group-maker {
     margin: 0 auto;
+    border: 1px solid gray;
+    width: 100%;
 }
 
+.prev-group-wrapper{
+    display: flex;
+    justify-content: center;
+
+}
 .prev-group-list{
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
-.prev-group{
+
+.group{
     display: flex;
     flex-direction: row;
-    margin: 0;
+    flex-wrap: wrap;
+    margin: 0 auto 0 0 ;
+    padding: .5em;
 }
 
-// .prev-group p{ 
-//     padding:  0 .2em;
-//     margin: 0 .2em;
-// }
+.group p {
+    padding-top: .5em;
+}
+.controls{
+    display: flex;
+    flex-direction: row;
+    max-width: 400px;
+}
 
+.window {
+    border: 1px solid gray;
+    margin: 2em;
+    min-height: 17em;
+}
 

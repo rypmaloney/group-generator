@@ -9,6 +9,10 @@ const TeamList = (props) => {
       {team.map((t) => {
         return <TeamMember teamMember={t} />;
       })}
+      <div className="team-add">
+        <p>Add team member:</p>
+        <input type="text"></input>
+      </div>
     </div>
   );
 };

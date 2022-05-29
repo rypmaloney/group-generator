@@ -1,7 +1,10 @@
 const Header = () => {
   return (
     <div className="header">
-      <h2>Header</h2>
+      <p>
+        This app will generate groups with a minimum number of repeat compositions. Rerun until you
+        find an acceptable group. Save to memory so future groups won't have the same makeup.
+      </p>
     </div>
   );
 };

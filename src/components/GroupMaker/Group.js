@@ -1,11 +1,12 @@
 import './index.scss';
 
 const Group = (props) => {
-  const group = props.group;
+  const { group, i } = props;
   return (
-    <div className="prev-group">
+    <div className="group">
+      <p>{i + 1}.</p>
       {group.map((t) => {
-        return <p>{t}</p>;
+        return <div className="team-member">{t}</div>;
       })}
     </div>
   );
