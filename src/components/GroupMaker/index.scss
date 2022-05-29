@@ -1,3 +1,20 @@
 .group-maker {
     margin: 0 auto;
 }
+
+.prev-group-list{
+    display: flex;
+    flex-direction: column;
+}
+.prev-group{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+// .prev-group p{ 
+//     padding:  0 .2em;
+//     margin: 0 .2em;
+// }
+
+

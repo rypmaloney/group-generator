@@ -1,4 +1,5 @@
 import './index.scss';
+import { useState } from 'react';
 import PrevGroups from './PreviousGroups';
 import { smallGroups } from '../../scripts/testGroups';
 
@@ -9,7 +10,7 @@ const GroupMaker = () => {
     <div className="group-maker">
       <h2>Group Maker</h2>
       <p>groups</p>
-      <PrevGroups pprevGroups={prevGroups} />
+      <PrevGroups prevGroups={prevGroups} />
     </div>
   );
 };
