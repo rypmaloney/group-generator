@@ -1,7 +1,8 @@
-const TeamMember = () => {
+const TeamMember = (props) => {
+  const teamMember = props.teamMember;
   return (
     <div className="team-member">
-      <h3>Team Member Name</h3>
+      <p>{teamMember}</p>
     </div>
   );
 };
