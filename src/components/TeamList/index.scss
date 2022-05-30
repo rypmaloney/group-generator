@@ -12,24 +12,27 @@
 
 .team-member{
     background-color: rgb(230, 233, 239);
-    padding: .4em;
+    padding: .2em;
     margin: .2em;
     border-radius: 2px;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
 }
 
 .team-member p {
     margin: auto;
+
 }
 
 .delete{
+    font-weight: 200;
     margin: 0 .5em;
 
 }
 .delete:hover{
     cursor: pointer;
-    color: rgb(142, 138, 138);
+    color: $important-color;
 
 }
 
@@ -37,6 +40,8 @@
 .team-add{
     padding: 1em 0;
 }
+
+
 
 @media (max-width:540px) { 
     .team-list {

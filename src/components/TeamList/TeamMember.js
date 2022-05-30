@@ -1,7 +1,10 @@
 const TeamMember = (props) => {
   const { teamMember, removeMember } = props;
+
+  const revealPairs = (e) => {};
+
   return (
-    <div className="team-member">
+    <div onMouseEnter={revealPairs} id={teamMember} className="team-member">
       <p>{teamMember}</p>
       <div
         onClick={(e) => {
@@ -9,7 +12,7 @@ const TeamMember = (props) => {
         }}
         className="delete"
         id={teamMember}>
-        x
+        &times;
       </div>
     </div>
   );

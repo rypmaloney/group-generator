@@ -27,7 +27,6 @@ const createRandomizedGroups = (teamList, numberOfGroups) => {
 
     // Add remainder to last group
     if (i === numberOfGroups - 1 && remainder > 0) {
-      console.log('there is a remainder');
       groupsArray[i] = groupsArray[i].concat(randomizedFishies.slice(-remainder));
     }
   }

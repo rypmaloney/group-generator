@@ -38,7 +38,7 @@ const Controls = (props) => {
         <button onClick={decrementCount}>-</button>
       </div>
       <button className="primary-btn" onClick={createGroups}>
-        {currentGroups[0].length > 0 ? 'Run Again' : 'Generate Groups'}
+        {currentGroups[0].length > 0 ? 'Create New Groups' : 'Generate Groups'}
       </button>
       {currentGroups[0].length > 0 ? <button onClick={addToPrev}>Save This Group</button> : <></>}
     </div>

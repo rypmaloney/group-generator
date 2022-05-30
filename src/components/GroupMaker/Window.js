@@ -3,14 +3,14 @@ import Group from './Group';
 import uniqid from 'uniqid';
 
 const Window = (props) => {
-  const currentGroups = props.currentGroups;
+  const { currentGroups, prevGroups, team } = props;
 
   return (
     <div className="window">
       <div className="current-group-wrapper">
         <div className="current-group-list">
           {currentGroups.map((group, i) => {
-            return <Group group={group} i={i} key={uniqid()} />;
+            return <Group group={group} i={i} key={uniqid()} team={team} prevGroups={prevGroups} />;
           })}
         </div>
       </div>

@@ -31,6 +31,12 @@ p {
 h1{
   color:$primary-color;
 }
+h2 {
+  color:$primary-color;
+}
+p {
+  color:$primary-color;
+}
 
 button {
   color: rgb(47, 47, 89);
@@ -42,6 +48,7 @@ button {
   margin: .5em;
   cursor: pointer;
   min-width: 2em;
+  padding: .4em;
 
 
 }
@@ -52,6 +59,22 @@ button:hover{
 .primary-btn{
   color:$important-color;
 }
+
+input[type="text"]{
+  padding: .5em;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+
+
+}
+input[type="text"]:focus{
+  border: none;
+  outline: 1px solid $important-color;
+  margin: 1px;
+
+
+}
+
 
 .title {
   display: flex;

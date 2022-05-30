@@ -32,17 +32,11 @@ const GroupMaker = (props) => {
 
   useEffect(() => {
     setUniquePairs(createUniqueFishyPairs(team));
-  }, []);
+  }, [team]);
 
   const createGroups = () => {
-    let pairs;
-    if (uniquePairs === []) {
-      pairs = createUniqueFishyPairs(team);
-    } else {
-      pairs = uniquePairs;
-    }
-    const scores = scoreGroups(smallGroups, pairs);
-    const lowScoreGroups = createLowScoreGroups(team, groupCount, scores);
+    let score = scoreGroups(prevGroups, createUniqueFishyPairs(team));
+    const lowScoreGroups = createLowScoreGroups(team, groupCount, score);
     setCurrentGroups(lowScoreGroups);
   };
 
@@ -76,8 +70,8 @@ const GroupMaker = (props) => {
         setMessage={setMessage}
         addToPrev={addToPrev}
       />
-      <Window currentGroups={currentGroups} />
-      <PrevGroups prevGroups={prevGroups} />
+      <Window currentGroups={currentGroups} prevGroups={prevGroups} team={team} />
+      <PrevGroups prevGroups={prevGroups} team={team} />
     </div>
   );
 };
