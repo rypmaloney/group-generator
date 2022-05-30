@@ -3,7 +3,7 @@ Generate groups with a minimum number of repeat group compositions. Grouper iden
 
 Rerun until you find an acceptable group. Save to memory so future groups won't have the same makeup.
 
-[Live preview]()
+[Live preview](https://grouper-generator.netlify.app/)
 
 ![grouper](/public/images/groups.png)
 ![grouper](/public/images/pairs.png)
