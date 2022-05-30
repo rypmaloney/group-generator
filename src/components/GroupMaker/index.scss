@@ -4,7 +4,6 @@ $panels: rgba(137, 156, 156, 0.587) ;
 
 .group-maker {
     margin: 0 auto;
-    // border: 1px solid gray;
     width: 100%;
 }
 
@@ -46,9 +45,7 @@ $panels: rgba(137, 156, 156, 0.587) ;
     flex-direction: row;
     align-items: center;
     max-width: 400px;
-    // border: 1px solid black;
     border-radius:5px;
-
     background-color: rgb(230, 233, 239);
     padding: 1em;
 
@@ -66,7 +63,7 @@ $panels: rgba(137, 156, 156, 0.587) ;
 }
 
 .message{
-    color: rgb(181, 60, 60);
+    color: $important-color;
     font-size: .8em;
     min-height: 1.2em;
 

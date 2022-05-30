@@ -2,7 +2,8 @@ import './index.scss';
 import { useState } from 'react';
 
 const Controls = (props) => {
-  let { groupCount, setGroupCount, createGroups, team, currentGroups, setMessage } = props;
+  let { groupCount, setGroupCount, createGroups, team, currentGroups, setMessage, addToPrev } =
+    props;
 
   const incrementCount = () => {
     if (groupCount < team.length / 2) {
@@ -33,14 +34,14 @@ const Controls = (props) => {
         <p>
           <strong>Number of Groups:</strong>
         </p>
-        <div>{groupCount}</div>
+        <div className="highlight">{groupCount}</div>
         <button onClick={incrementCount}>+</button>
         <button onClick={decrementCount}>-</button>
       </div>
-      <button onClick={createGroups}>
+      <button className="primary-btn" onClick={createGroups}>
         {currentGroups[0].length > 0 ? 'Run Again' : 'Generate Groups'}
       </button>
-      {currentGroups[0].length > 0 ? <button>Use This Group</button> : <></>}
+      {currentGroups[0].length > 0 ? <button onClick={addToPrev}>Save This Group</button> : <></>}
     </div>
   );
 };

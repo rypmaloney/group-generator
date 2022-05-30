@@ -7,7 +7,7 @@ const PrevGroups = (props) => {
     <div className="prev-group-wrapper">
       <div className="prev-group-list">
         <h2>Previous Groups</h2>
-        {prevGroups[0].map((group, i) => {
+        {prevGroups.map((group, i) => {
           return <Group group={group} i={i} />;
         })}
       </div>

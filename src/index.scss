@@ -3,8 +3,11 @@
 
 $body-font: Roboto, sans-serif;
 $header-font: Poppins, helvetica, sans-serif;
-$primary-color: rgb(23, 42, 75);
+$primary-color:   rgb(30, 53, 63);
+$primary-background: rgb(230, 233, 239);
 $mobile-query: 540px;
+$important-color: rgb(181, 60, 60);
+
 
 
 body {
@@ -26,7 +29,7 @@ p {
 }
 
 h1{
-  color:rgb(30, 53, 63);
+  color:$primary-color;
 }
 
 button {
@@ -34,7 +37,7 @@ button {
   font-weight: 600;
   min-height: 2em;
   background-color:rgb(255, 255, 255) ;
-  border: 2px solid rgb(58, 55, 55);
+  border: 2px solid $primary-color;
   border-radius: 8px;
   margin: .5em;
   cursor: pointer;
@@ -44,6 +47,10 @@ button {
 }
 button:hover{
   background-color:rgb(233, 233, 233) ;
+}
+
+.primary-btn{
+  color:$important-color;
 }
 
 .title {
@@ -59,4 +66,9 @@ button:hover{
   max-width: 100px;
   max-height: 50px;
   margin-right: 2em;
+}
+
+.highlight {
+  color: $primary-color;
+  font-weight: 600;
 }
