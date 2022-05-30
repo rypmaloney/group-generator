@@ -1,10 +1,8 @@
 const TeamMember = (props) => {
   const { teamMember, removeMember } = props;
 
-  const revealPairs = (e) => {};
-
   return (
-    <div onMouseEnter={revealPairs} id={teamMember} className="team-member">
+    <div id={teamMember} className="team-member">
       <p>{teamMember}</p>
       <div
         onClick={(e) => {

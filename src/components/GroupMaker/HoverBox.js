@@ -21,7 +21,7 @@ const HoverBox = (props) => {
 
   return (
     <div className="hover-box">
-      <p className="highlight">{member}'s Pairs:</p>
+      <p className="highlight">{member}&apos;s Pairs:</p>
       {groupPairScores.map((gp) => {
         return (
           <p key={uniqid()}>

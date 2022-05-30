@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import HoverBox from './HoverBox';
 import { findScore, createUniqueFishyPairs, scoreGroups } from '../../scripts/scoring/scoring';
 

@@ -27,12 +27,7 @@ const GroupMaker = (props) => {
     return initialValue || 3;
   });
 
-  const [uniquePairs, setUniquePairs] = useState([]);
   const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    setUniquePairs(createUniqueFishyPairs(team));
-  }, [team]);
 
   const createGroups = () => {
     let score = scoreGroups(prevGroups, createUniqueFishyPairs(team));
