@@ -1,12 +1,17 @@
 import './index.scss';
+import uniqid from 'uniqid';
 
 const Group = (props) => {
   const { group, i } = props;
   return (
     <div className="group">
-      {/* <p>{i + 1}.</p> */}
+      {/* OL <p>{i + 1}.</p> */}
       {group.map((t) => {
-        return <div className="team-member">{t}</div>;
+        return (
+          <div key={uniqid()} className="team-member">
+            {t}
+          </div>
+        );
       })}
     </div>
   );
