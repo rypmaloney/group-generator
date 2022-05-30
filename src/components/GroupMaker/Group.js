@@ -3,7 +3,7 @@ import uniqid from 'uniqid';
 import GroupMember from './GroupMember';
 
 const Group = (props) => {
-  const { group, i, prevGroups, team } = props;
+  const { group, prevGroups, team } = props;
 
   return (
     <div className="group">

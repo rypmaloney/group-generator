@@ -10,30 +10,6 @@ const createGroups = (numberOfGroups) => {
   return groupsArray;
 };
 
-const createRandomizedGroups = (teamList, numberOfGroups) => {
-  const randomizedFishies = randomizeList(teamList);
-
-  const groupsArray = createGroups(numberOfGroups);
-
-  const groupSize = Math.floor(randomizedFishies.length / numberOfGroups);
-  const remainder = randomizedFishies.length % numberOfGroups;
-  let bottomBound = 0;
-  let topBound = groupSize;
-
-  for (let i = 0; i < numberOfGroups; i++) {
-    groupsArray[i] = randomizedFishies.slice(bottomBound, topBound);
-    bottomBound += groupSize;
-    topBound += groupSize;
-
-    // Add remainder to last group
-    if (i === numberOfGroups - 1 && remainder > 0) {
-      groupsArray[i] = groupsArray[i].concat(randomizedFishies.slice(-remainder));
-    }
-  }
-
-  return groupsArray;
-};
-
 const createLowScoreGroups = (teamList, numberOfGroups, currentPairScore) => {
   // create groups
   const groupsArray = createGroups(numberOfGroups);
@@ -42,7 +18,7 @@ const createLowScoreGroups = (teamList, numberOfGroups, currentPairScore) => {
 
   // Find pairs wiht the highest score
   // copy and sort lowest score to highest
-  const sortedPairScore = currentPairScore.map((a) => ({ ...a })).sort((a, b) => a.score - b.score);
+  //const sortedPairScore = currentPairScore.map((a) => ({ ...a })).sort((a, b) => a.score - b.score);
 
   // create randomized list of team members - use this list to track
   let randomizedTeamList = randomizeList(groupsTeamList);

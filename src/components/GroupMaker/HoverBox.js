@@ -10,9 +10,11 @@ const HoverBox = (props) => {
     for (let i = 0; i < groupPairScores.length; i++) {
       total += groupPairScores[i].score;
     }
-    let groupAvg = total / groupPairScores.length;
 
-    setAvg(groupAvg);
+    let groupAvg = total / groupPairScores.length;
+    let rounded = Math.round(100 * groupAvg) / 100;
+
+    setAvg(rounded);
   };
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const HoverBox = (props) => {
       {groupPairScores.map((gp) => {
         return (
           <p key={uniqid()}>
-            {gp.pairee}: {gp.score} times
+            {gp.pairee}: {gp.score} time{gp.score != 1 ? 's' : ''}
           </p>
         );
       })}
