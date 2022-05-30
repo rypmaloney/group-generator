@@ -2,29 +2,37 @@ import './index.scss';
 import { useState } from 'react';
 
 const Controls = (props) => {
-  let { groupCount, setGroupCount, createGroups, team, currentGroups } = props;
+  let { groupCount, setGroupCount, createGroups, team, currentGroups, setMessage } = props;
 
   const incrementCount = () => {
     if (groupCount < team.length / 2) {
       let count = groupCount + 1;
       setGroupCount(count);
+      setMessage(' ');
     } else {
-      // set message - team members will be alone if you do more than groupCount/2 groups
+      setMessage(
+        `Team members will be alone in a group if you select more than ${Math.floor(
+          team.length / 2
+        )} groups.`
+      );
     }
   };
   const decrementCount = () => {
     if (groupCount > 1) {
       let count = groupCount - 1;
       setGroupCount(count);
+      setMessage(' ');
     } else {
-      //set message - you cant have zero groups
+      setMessage('You cannot have zero groups.');
     }
   };
 
   return (
     <div className="controls">
       <div className="counter">
-        <p>Number of Groups:</p>
+        <p>
+          <strong>Number of Groups:</strong>
+        </p>
         <div>{groupCount}</div>
         <button onClick={incrementCount}>+</button>
         <button onClick={decrementCount}>-</button>
@@ -32,7 +40,7 @@ const Controls = (props) => {
       <button onClick={createGroups}>
         {currentGroups[0].length > 0 ? 'Run Again' : 'Generate Groups'}
       </button>
-      {currentGroups[0].length > 0 ? <button>Use this group</button> : <></>}
+      {currentGroups[0].length > 0 ? <button>Use This Group</button> : <></>}
     </div>
   );
 };

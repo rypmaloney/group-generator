@@ -1,18 +1,48 @@
 import TeamMember from './TeamMember';
 import './index.scss';
+import { useState } from 'react';
 
 const TeamList = (props) => {
-  const team = props.team;
+  const { team, setTeam } = props;
+  const [newMember, setNewMember] = useState('');
+
+  const removeMember = (member) => {
+    console.log('run');
+    console.log(member);
+    let newTeam = team.filter((t) => {
+      return t !== member;
+    });
+    setTeam(newTeam);
+  };
+
+  const addMember = (e) => {
+    e.preventDefault();
+    if (newMember.length > 1) {
+      let newTeam = [...team];
+      newTeam.push(newMember);
+      setTeam(newTeam);
+      setNewMember('');
+    }
+  };
+
   return (
     <div className="team-list">
       <h2>Team List</h2>
       {team.map((t) => {
-        return <TeamMember teamMember={t} />;
+        return <TeamMember teamMember={t} key={t} removeMember={removeMember} />;
       })}
-      <div className="team-add">
-        <p>Add team member:</p>
-        <input type="text"></input>
-      </div>
+      <form className="team-add" onSubmit={addMember}>
+        <p>
+          <strong>Add team member:</strong>
+        </p>
+        <input
+          type="text"
+          onChange={(e) => {
+            setNewMember(e.target.value);
+          }}
+          value={newMember}></input>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 };

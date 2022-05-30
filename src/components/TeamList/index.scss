@@ -6,10 +6,11 @@
     border: 1px solid black;
     border-radius: 3px;
 
+
+
 }
 
 .team-member{
-    
     background-color: rgb(230, 233, 239);
     padding: .2em;
     margin: .2em;
@@ -32,9 +33,14 @@
 
 }
 
-@media (max-width: $mobile-query) { 
+
+.team-add{
+    padding: 1em 0;
+}
+
+@media (max-width:540px) { 
     .team-list {
-        margin: auto;
+        margin: 1em auto;
 
     }
   }

@@ -4,7 +4,7 @@
 $body-font: Roboto, sans-serif;
 $header-font: Poppins, helvetica, sans-serif;
 $primary-color: rgb(23, 42, 75);
-$mobile-query: 360px;
+$mobile-query: 540px;
 
 
 body {
@@ -25,6 +25,38 @@ p {
   margin: 0 .4em;
 }
 
+h1{
+  color:rgb(30, 53, 63);
+}
+
 button {
-  color: blue
+  color: rgb(47, 47, 89);
+  font-weight: 600;
+  min-height: 2em;
+  background-color:rgb(255, 255, 255) ;
+  border: 2px solid rgb(58, 55, 55);
+  border-radius: 8px;
+  margin: .5em;
+  cursor: pointer;
+  min-width: 2em;
+
+
+}
+button:hover{
+  background-color:rgb(233, 233, 233) ;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.grouper{
+  max-width: 100px;
+  max-height: 50px;
+  margin-right: 2em;
 }

@@ -15,6 +15,7 @@ const GroupMaker = (props) => {
   const [currentGroups, setCurrentGroups] = useState([[]]);
   let [groupCount, setGroupCount] = useState(3);
   const [uniquePairs, setUniquePairs] = useState([]);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     setUniquePairs();
@@ -24,23 +25,23 @@ const GroupMaker = (props) => {
     const pairs = createUniqueFishyPairs(team);
     const scores = scoreGroups(smallGroups, pairs);
     const lowScoreGroups = createLowScoreGroups(team, groupCount, scores);
-    console.log(lowScoreGroups);
     setCurrentGroups(lowScoreGroups);
-    console.log(currentGroups);
   };
 
   return (
     <div className="group-maker">
-      <h2>Group Maker</h2>
       <Header />
-      <Window currentGroups={currentGroups} />
+
+      <p className="message">{message}</p>
       <Controls
         groupCount={groupCount}
         setGroupCount={setGroupCount}
         createGroups={createGroups}
         team={team}
         currentGroups={currentGroups}
+        setMessage={setMessage}
       />
+      <Window currentGroups={currentGroups} />
       <PrevGroups prevGroups={prevGroups} />
     </div>
   );
