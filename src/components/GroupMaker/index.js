@@ -35,7 +35,12 @@ const GroupMaker = (props) => {
   }, []);
 
   const createGroups = () => {
-    const pairs = createUniqueFishyPairs(team);
+    let pairs;
+    if (uniquePairs === []) {
+      pairs = createUniqueFishyPairs(team);
+    } else {
+      pairs = uniquePairs;
+    }
     const scores = scoreGroups(smallGroups, pairs);
     const lowScoreGroups = createLowScoreGroups(team, groupCount, scores);
     setCurrentGroups(lowScoreGroups);

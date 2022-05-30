@@ -8,8 +8,8 @@ const Header = () => {
         attempts to create groups with the lowest number of previously paired individuals.
       </p>
       <p>
-        Rerun until you find an acceptable group. Save to memory so future groups won't have the
-        same makeup.
+        Rerun until you find an acceptable group. Save to memory so future groups won&apos;t have
+        the same makeup.
       </p>
     </div>
   );

@@ -1,5 +1,4 @@
 import './index.scss';
-import { useState } from 'react';
 
 const Controls = (props) => {
   let { groupCount, setGroupCount, createGroups, team, currentGroups, setMessage, addToPrev } =
