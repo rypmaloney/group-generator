@@ -9,7 +9,6 @@ const Window = (props) => {
     <div className="window">
       <div className="current-group-wrapper">
         <div className="current-group-list">
-          <h2>Generated Groups</h2>
           {currentGroups.map((group, i) => {
             return <Group group={group} i={i} key={uniqid()} />;
           })}

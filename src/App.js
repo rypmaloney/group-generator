@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <div className="title">
         <img className="grouper" src={grouper}></img>
-        <h1>Fishtank Grouper</h1>
+        <h1>Grouper</h1>
       </div>
       <main>
         <TeamList team={team} setTeam={setTeam} />

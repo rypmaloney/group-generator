@@ -33,7 +33,7 @@ const TeamList = (props) => {
       })}
       <form className="team-add" onSubmit={addMember}>
         <p>
-          <strong>Add team member:</strong>
+          <strong>Add Team Member:</strong>
         </p>
         <input
           type="text"
