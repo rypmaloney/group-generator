@@ -7,8 +7,6 @@ const TeamList = (props) => {
   const [newMember, setNewMember] = useState('');
 
   const removeMember = (member) => {
-    console.log('run');
-    console.log(member);
     let newTeam = team.filter((t) => {
       return t !== member;
     });
