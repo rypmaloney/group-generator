@@ -7,8 +7,9 @@ const TeamList = (props) => {
   const [newMember, setNewMember] = useState('');
 
   const removeMember = (member) => {
+    console.log(team);
     let newTeam = team.filter((t) => {
-      return t !== member;
+      return t.name !== member;
     });
     setTeam(newTeam);
   };
@@ -27,7 +28,7 @@ const TeamList = (props) => {
     <div className="team-list">
       <h2>Team List</h2>
       {team.map((t) => {
-        return <TeamMember teamMember={t} key={t} removeMember={removeMember} />;
+        return <TeamMember teamMember={t} key={t.name} removeMember={removeMember} />;
       })}
       <form className="team-add" onSubmit={addMember}>
         <p>

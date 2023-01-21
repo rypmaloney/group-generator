@@ -6,7 +6,7 @@ import Header from '../Header';
 import Window from './Window';
 import Controls from './Controls';
 import { createUniqueFishyPairs } from '../../scripts/scoring/scoring';
-import createLowScoreGroups from '../../scripts/createGroups/createGroups';
+import createLowScoreGroups from '../../scripts/createGroups/createGroups.js';
 import { scoreGroups } from '../../scripts/scoring/scoring';
 
 const GroupMaker = (props) => {
@@ -65,8 +65,13 @@ const GroupMaker = (props) => {
         setMessage={setMessage}
         addToPrev={addToPrev}
       />
-      <Window currentGroups={currentGroups} prevGroups={prevGroups} team={team} />
-      <PrevGroups prevGroups={prevGroups} team={team} />
+      <Window
+        currentGroups={currentGroups}
+        prevGroups={prevGroups}
+        team={team}
+        allowHoverbox={true}
+      />
+      <PrevGroups prevGroups={prevGroups} team={team} allowHoverbox={false} />
     </div>
   );
 };

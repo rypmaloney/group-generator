@@ -6,7 +6,7 @@ import uniqid from 'uniqid';
 
 const GroupMember = (props) => {
   const [isHovering, setIsHovering] = useState(false);
-  const { member, team, group, prevGroups } = props;
+  const { member, team, group, prevGroups, allowHoverbox } = props;
   const [groupPairScores, setGroupPairScores] = useState(false);
 
   const findPairScores = () => {
@@ -23,8 +23,10 @@ const GroupMember = (props) => {
   };
 
   const handleMouseOver = () => {
-    setIsHovering(true);
-    findPairScores();
+    if (allowHoverbox) {
+      setIsHovering(true);
+      findPairScores();
+    }
   };
 
   return (
@@ -33,7 +35,7 @@ const GroupMember = (props) => {
         className="team-member"
         onMouseEnter={handleMouseOver}
         onMouseLeave={() => setIsHovering(false)}>
-        {isHovering && (
+        {isHovering && allowHoverbox && (
           <HoverBox member={member} groupPairScores={groupPairScores} key={uniqid()} />
         )}
         <p>{member}</p>

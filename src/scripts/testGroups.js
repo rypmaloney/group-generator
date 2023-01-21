@@ -2,19 +2,148 @@ const fishiesTeamList = [
   'Anne',
   'Alliyah',
   'Faith',
-  'Griffin',
-  'Shawn',
-  'Zach',
+  //'Griffin',
+  //'Shawn',
+  //'Zach',
   'Ryan',
-  'Ebony',
+  //'Ebony',
   'Claire',
   'Maggie',
   'Sarah',
   'Chelsea',
   'Sam',
-  'Christopher',
+  //'Christopher',
   'Caroline',
-  'Jami'
+  'Jami',
+  'Rachel',
+  'Martin'
+];
+
+const fishiesTeamList_attr = [
+  {
+    name: 'Anne',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'ela'
+      }
+    ]
+  },
+  {
+    name: 'Alliyah',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'ela'
+      }
+    ]
+  },
+  {
+    name: 'Ryan',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'dev'
+      }
+    ]
+  },
+  {
+    name: 'Faith',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'math'
+      }
+    ]
+  },
+  {
+    name: 'Claire',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'mgmt'
+      }
+    ]
+  },
+  {
+    name: 'Maggie',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'ela'
+      }
+    ]
+  },
+  {
+    name: 'Sarah',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'math'
+      }
+    ]
+  },
+  {
+    name: 'Chelsea',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'marketing'
+      }
+    ]
+  },
+  {
+    name: 'Sam',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'ela'
+      }
+    ]
+  },
+  {
+    name: 'Caroline',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'ela'
+      }
+    ]
+  },
+  {
+    name: 'Jami',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'math'
+      }
+    ]
+  },
+  {
+    name: 'Rachel',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'marketing'
+      }
+    ]
+  },
+  {
+    name: 'Martin',
+    attributes: [
+      {
+        title: 'dept.',
+        value: 'math'
+      }
+    ]
+  }
+];
+
+const attributes = [
+  {
+    title: 'dept.',
+    weight: 5
+  }
 ];
 
 const testGroups = [
@@ -47,4 +176,4 @@ const smallGroups = [
   ['Faith', 'Zach', 'Caroline', 'Claire', 'Christopher']
 ];
 
-export { testGroups, fishiesTeamList, smallGroups };
+export { testGroups, fishiesTeamList, smallGroups, fishiesTeamList_attr, attributes };

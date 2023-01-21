@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fishiesTeamList } from './scripts/testGroups';
+import { fishiesTeamList, fishiesTeamList_attr } from './scripts/testGroups';
 import './App.scss';
 import TeamList from './components/TeamList';
 import GroupMaker from './components/GroupMaker';
@@ -9,7 +9,7 @@ function App() {
   const [team, setTeam] = useState(() => {
     const saved = localStorage.getItem('team');
     const initialValue = JSON.parse(saved);
-    return initialValue || fishiesTeamList;
+    return initialValue || fishiesTeamList_attr;
   });
 
   useEffect(() => {
