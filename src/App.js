@@ -6,6 +6,15 @@ import GroupMaker from './components/GroupMaker';
 import grouper from './img/grouper.png';
 
 function App() {
+  const APP_VERSION = process.env.REACT_APP_CURRENT_GIT_SHA;
+  if (typeof localStorage.APP_VERSION === 'undefined' || localStorage.APP_VERSION === null) {
+    localStorage.setItem('APP_VERSION', APP_VERSION);
+  }
+
+  if (localStorage.APP_VERSION != APP_VERSION) {
+    localStorage.clear();
+  }
+
   const [team, setTeam] = useState(() => {
     const saved = localStorage.getItem('team');
     const initialValue = JSON.parse(saved);
