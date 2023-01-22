@@ -67,8 +67,8 @@ const Controls = (props) => {
         </form>
 
         <p className="control-info">
-          Select attrubute weight. A higher number will make it less likely for members with
-          similart attributes to be put in the same group.
+          A higher number will make it less likely for members with matching attribute to be put in
+          the same group. Select zero to have that attribute not affect the outcome.
         </p>
       </div>
       <div className="counter">
