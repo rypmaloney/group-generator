@@ -2,7 +2,7 @@ import './index.scss';
 import uniqid from 'uniqid';
 import { useEffect, useState } from 'react';
 const HoverBox = (props) => {
-  const { member, groupPairScores } = props;
+  const { member, groupPairScores, attribubtePairScores } = props;
   const [avg, setAvg] = useState(0);
 
   const calculateAvg = () => {
@@ -32,6 +32,17 @@ const HoverBox = (props) => {
         );
       })}
       <p className="highlight">Avg: {avg}</p>
+      <hr></hr>
+      <p>
+        <strong>With attribute multiplier:</strong>
+      </p>
+      {attribubtePairScores.map((gp) => {
+        return (
+          <p key={uniqid()}>
+            {gp.pairee}: {gp.score}
+          </p>
+        );
+      })}
     </div>
   );
 };

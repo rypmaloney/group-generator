@@ -66,7 +66,7 @@ const scoreGroupAttributes = (prevPairScore, teamList, attributes) => {
  */
 const findMemberAttributes = (member, attribute, teamList) => {
   const teamListMember = teamList.find((obj) => obj.name == member);
-  const attributeValue = teamListMember.attributes.find((attr) => attr.title === attribute).value;
+  const attributeValue = teamListMember.attributes[attribute];
   return attributeValue;
 };
 

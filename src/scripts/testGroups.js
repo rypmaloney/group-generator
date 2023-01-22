@@ -22,120 +22,82 @@ const fishiesTeamList = [
 const fishiesTeamList_attr = [
   {
     name: 'Anne',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'ela'
-      }
-    ]
+    attributes: {
+      'dept.': 'ela'
+    }
   },
   {
     name: 'Alliyah',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'ela'
-      }
-    ]
+    attributes: {
+      'dept.': 'ela'
+    }
   },
   {
     name: 'Ryan',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'dev'
-      }
-    ]
+    attributes: {
+      title: 'dept.',
+      'dept.': 'dev'
+    }
   },
   {
     name: 'Faith',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'math'
-      }
-    ]
+    attributes: {
+      'dept.': 'math'
+    }
   },
   {
     name: 'Claire',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'mgmt'
-      }
-    ]
+    attributes: {
+      'dept.': 'mgmt'
+    }
   },
   {
     name: 'Maggie',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'ela'
-      }
-    ]
+    attributes: {
+      'dept.': 'ela'
+    }
   },
   {
     name: 'Sarah',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'math'
-      }
-    ]
+    attributes: {
+      'dept.': 'math'
+    }
   },
   {
     name: 'Chelsea',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'marketing'
-      }
-    ]
+    attributes: {
+      'dept.': 'marketing'
+    }
   },
   {
     name: 'Sam',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'ela'
-      }
-    ]
+    attributes: {
+      'dept.': 'ela'
+    }
   },
   {
     name: 'Caroline',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'ela'
-      }
-    ]
+    attributes: {
+      'dept.': 'ela'
+    }
   },
   {
     name: 'Jami',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'math'
-      }
-    ]
+    attributes: {
+      'dept.': 'math'
+    }
   },
   {
     name: 'Rachel',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'marketing'
-      }
-    ]
+    attributes: {
+      'dept.': 'marketing'
+    }
   },
   {
     name: 'Martin',
-    attributes: [
-      {
-        title: 'dept.',
-        value: 'math'
-      }
-    ]
+    attributes: {
+      'dept.': 'math'
+    }
   }
 ];
 
@@ -143,6 +105,12 @@ const attributes = [
   {
     title: 'dept.',
     weight: 5
+  }
+];
+const presetAttributes = [
+  {
+    title: 'dept.',
+    weight: 3
   }
 ];
 
@@ -176,4 +144,11 @@ const smallGroups = [
   ['Faith', 'Zach', 'Caroline', 'Claire', 'Christopher']
 ];
 
-export { testGroups, fishiesTeamList, smallGroups, fishiesTeamList_attr, attributes };
+export {
+  testGroups,
+  fishiesTeamList,
+  smallGroups,
+  fishiesTeamList_attr,
+  attributes,
+  presetAttributes
+};

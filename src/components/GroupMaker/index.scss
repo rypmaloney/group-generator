@@ -87,3 +87,35 @@ $panels: rgba(137, 156, 156, 0.587) ;
     margin-left: 3.5em;
 }
 
+.attribute{
+    display: flex;
+    flex-direction: row;
+    padding:5px;
+}
+
+.slider-panel{
+    padding: 5px;
+}
+
+.slider{
+    -webkit-appearance: none;
+    background: #8eacba;
+    border: solid 1px #195c5d;
+    border-radius: 8px;
+    height: 4px;
+    width: 150px;
+    margin-top: 6px;
+    transition: background 450ms ease-in;
+
+
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width:10px;
+    height: 10px;
+    background: #0b3250;
+    border-radius: 4px;
+    cursor: pointer;
+}

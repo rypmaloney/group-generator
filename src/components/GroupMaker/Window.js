@@ -3,7 +3,7 @@ import Group from './Group';
 import uniqid from 'uniqid';
 
 const Window = (props) => {
-  const { currentGroups, prevGroups, team, allowHoverbox } = props;
+  const { currentGroups, prevGroups, team, allowHoverbox, attributes } = props;
 
   return (
     <div className="window">
@@ -18,6 +18,7 @@ const Window = (props) => {
                 team={team}
                 prevGroups={prevGroups}
                 allowHoverbox={allowHoverbox}
+                attributes={attributes}
               />
             );
           })}

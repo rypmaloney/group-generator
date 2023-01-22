@@ -42,11 +42,12 @@
 }
 
 
-
-@media (max-width:540px) { 
+.attrs{
+    font-size: x-small;
+}
+@media (max-width:540px) {
     .team-list {
         margin: 1em auto;
 
     }
   }
-  

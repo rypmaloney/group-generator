@@ -5,12 +5,12 @@ import { smallGroups } from '../../scripts/testGroups';
 import Header from '../Header';
 import Window from './Window';
 import Controls from './Controls';
-import { createUniqueFishyPairs } from '../../scripts/scoring/scoring';
+import { createUniqueFishyPairs, scoreGroupAttributes } from '../../scripts/scoring/scoring';
 import createLowScoreGroups from '../../scripts/createGroups/createGroups.js';
 import { scoreGroups } from '../../scripts/scoring/scoring';
 
 const GroupMaker = (props) => {
-  const { team } = props;
+  const { team, attributes, setAttributes } = props;
   const [prevGroups, setPrevGroups] = useState(() => {
     const saved = localStorage.getItem('prevGroups');
     const initialValue = JSON.parse(saved);
@@ -31,7 +31,10 @@ const GroupMaker = (props) => {
 
   const createGroups = () => {
     let score = scoreGroups(prevGroups, createUniqueFishyPairs(team));
-    const lowScoreGroups = createLowScoreGroups(team, groupCount, score);
+    // Attributes
+    let attributeScore = scoreGroupAttributes(score, team, attributes);
+    const lowScoreGroups = createLowScoreGroups(team, groupCount, attributeScore);
+    console.log(attributeScore);
     setCurrentGroups(lowScoreGroups);
   };
 
@@ -64,14 +67,22 @@ const GroupMaker = (props) => {
         currentGroups={currentGroups}
         setMessage={setMessage}
         addToPrev={addToPrev}
+        attributes={attributes}
+        setAttributes={setAttributes}
       />
       <Window
         currentGroups={currentGroups}
         prevGroups={prevGroups}
         team={team}
         allowHoverbox={true}
+        attributes={attributes}
       />
-      <PrevGroups prevGroups={prevGroups} team={team} allowHoverbox={false} />
+      <PrevGroups
+        prevGroups={prevGroups}
+        team={team}
+        allowHoverbox={false}
+        attributes={attributes}
+      />
     </div>
   );
 };
