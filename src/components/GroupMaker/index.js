@@ -34,7 +34,6 @@ const GroupMaker = (props) => {
     // Attributes
     let attributeScore = scoreGroupAttributes(score, team, attributes);
     const lowScoreGroups = createLowScoreGroups(team, groupCount, attributeScore);
-    console.log(attributeScore);
     setCurrentGroups(lowScoreGroups);
   };
 
@@ -42,7 +41,8 @@ const GroupMaker = (props) => {
     localStorage.setItem('currentGroups', JSON.stringify(currentGroups));
     localStorage.setItem('prevGroups', JSON.stringify(prevGroups));
     localStorage.setItem('groupCount', JSON.stringify(groupCount));
-  }, [currentGroups, prevGroups, groupCount]);
+    localStorage.setItem('attributes', JSON.stringify(attributes));
+  }, [currentGroups, prevGroups, groupCount, attributes]);
 
   const addToPrev = () => {
     let prev = [...prevGroups];

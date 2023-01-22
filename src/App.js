@@ -29,7 +29,12 @@ function App() {
         <h1>Grouper</h1>
       </div>
       <main>
-        <TeamList team={team} setTeam={setTeam} attributes={attributes} />
+        <TeamList
+          team={team}
+          setTeam={setTeam}
+          attributes={attributes}
+          setAttributes={setAttributes}
+        />
         <GroupMaker team={team} attributes={attributes} setAttributes={setAttributes} />
       </main>
     </div>

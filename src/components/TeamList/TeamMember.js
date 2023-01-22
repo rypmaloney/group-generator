@@ -1,18 +1,78 @@
+import { useState } from 'react';
+
 const TeamMember = (props) => {
-  const { teamMember, removeMember } = props;
+  const { teamMember, removeMember, team, setTeam } = props;
   const attributesArray = Object.entries(teamMember.attributes);
+  const [edited, setEdited] = useState('');
+  const [editedAttributes, setEditedAttributes] = useState('');
+
+  const handleEditAttribute = (key, value) => {
+    let newEditAttributes = JSON.parse(JSON.stringify(editedAttributes));
+
+    newEditAttributes[key] = value;
+    setEditedAttributes(newEditAttributes);
+  };
+  const handleSave = (member) => {
+    let tempTeam = [...team];
+    tempTeam.map((member) => {
+      if (member.name == edited) {
+        member.attributes = editedAttributes;
+      }
+    });
+    setTeam(tempTeam);
+    setEdited('');
+  };
+  const handleCancel = () => {
+    setEdited('');
+  };
+
   return (
     <div id={teamMember.name} className="team-member">
       <div>
-        <p>{teamMember.name}</p>
-        {attributesArray.map(([key, value]) => {
-          return (
-            <p className="attrs" key={key}>
-              {key}: {value}
-            </p>
-          );
-        })}
+        <p>
+          <strong>{teamMember.name}</strong>
+        </p>
+        {edited === teamMember.name ? (
+          <>
+            {attributesArray.map(([key, value]) => {
+              return (
+                <div key={key} className="field-row">
+                  <p className="attrs">{key}: </p>
+                  <input
+                    type="text"
+                    value={editedAttributes[key]}
+                    onChange={(e) => handleEditAttribute(key, e.target.value)}
+                  />
+                </div>
+              );
+            })}
+            <button onClick={() => handleSave(teamMember.name)}>Save</button>
+            <button onClick={handleCancel}>Cancel</button>
+          </>
+        ) : (
+          <>
+            {attributesArray.map(([key, value]) => {
+              return (
+                <div key={key} className="row">
+                  <p className="attrs" key={key}>
+                    <strong>{key}:</strong>
+                  </p>
+                  <p className="attrs"> {value}</p>
+                </div>
+              );
+            })}
+          </>
+        )}
         <p></p>
+      </div>
+      <div
+        onClick={(e) => {
+          setEdited(e.target.id);
+          setEditedAttributes(teamMember.attributes);
+        }}
+        className="edit"
+        id={teamMember.name}>
+        &#9998;
       </div>
       <div
         onClick={(e) => {

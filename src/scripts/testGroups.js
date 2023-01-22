@@ -35,8 +35,7 @@ const fishiesTeamList_attr = [
   {
     name: 'Ryan',
     attributes: {
-      title: 'dept.',
-      'dept.': 'dev'
+      'dept.': 'mgmt'
     }
   },
   {
@@ -94,6 +93,12 @@ const fishiesTeamList_attr = [
     }
   },
   {
+    name: 'Jaselle',
+    attributes: {
+      'dept.': 'mgmt'
+    }
+  },
+  {
     name: 'Martin',
     attributes: {
       'dept.': 'math'
@@ -127,6 +132,21 @@ const testGroups = [
 ];
 
 const smallGroups = [
+  ['Anne', 'Ryan', 'Faith', 'Sarah', 'Alliyah'],
+  ['Caroline', 'Chelsea', 'Jami', 'Maureen', 'Jaselle'],
+  ['Claire', 'Martin', 'Rachel', 'Maggie', 'Sam'],
+  ['Anne', 'Jaselle', 'Rachel', 'Jami', 'Shawn'],
+  ['Alliyah', 'Ryan', 'Caroline', 'Maggie', 'Claire'],
+  ['Faith', 'Chelsea', 'Sarah', 'Sam', 'Martin'],
+  ['Anne', 'Alliyah', 'Faith', 'Chelsea', 'Jaselle'],
+  ['Ryan', 'Ebony', 'Sarah', 'Rachel', 'Claire'],
+  ['Jami', 'Shawn', 'Caroline', 'Maggie', 'Sam'],
+  ['Caroline', 'Sam', 'Claire', 'Alliyah', 'Faith'],
+  ['Jami', 'Rachel', 'Shawn', 'Anne'],
+  ['Chelsea', 'Sarah', 'Ebony', 'Ryan'],
+  ['Faith', 'Sam', 'Griffin', 'Chelsea', 'Maggie'],
+  ['Shawn', 'Ebony', 'Jami', 'Claire', 'Ryan', 'Rachel'],
+  ['Caroline', 'Alliyah', 'Anne', 'Christopher', 'Sarah', 'Kariel'],
   ['Anne', 'Alliyah', 'Faith', 'Griffin', 'Shawn'],
   ['Ryan', 'Ebony', 'Claire', 'Maggie', 'Sarah'],
   ['Chelsea', 'Sam', 'Christopher', 'Caroline', 'Jami'],

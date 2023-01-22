@@ -40,7 +40,6 @@ const Controls = (props) => {
     const updatedAttributes = [...attributes];
     updatedAttributes[index].weight = event.target.value;
     setAttributes(updatedAttributes);
-    console.log(attributes);
   };
 
   return (
@@ -76,7 +75,7 @@ const Controls = (props) => {
 
         <p className="control-info">
           A higher number will make it less likely for members with matching attribute to be put in
-          the same group. Select zero to have that attribute not affect the outcome.
+          the same group. <br></br>Select zero and that attribute will not affect the outcome.
         </p>
       </div>
 
