@@ -1,8 +1,9 @@
-const createUniqueFishyPairs = (fishies) => {
-  // returns object of unique pairings from array with a score key
-  // Just names, no attributes
-  const result = fishies.flatMap((v, i) =>
-    fishies.slice(i + 1).map((w) => ({ pair: [v.name, w.name], score: 0 }))
+/**
+ * Takes team list object and creates list of unique pairings from array with a score key
+ */
+const createUniqueFishyPairs = (members) => {
+  const result = members.flatMap((v, i) =>
+    members.slice(i + 1).map((w) => ({ pair: [v.name, w.name], score: 0 }))
   );
   return result;
 };
@@ -41,7 +42,7 @@ const scoreGroups = (groups, prevPairScore) => {
 const scoreGroupAttributes = (prevPairScore, teamList, attributes) => {
   const updatedScore = prevPairScore.map((a) => ({ ...a }));
   for (let i = 0; i < updatedScore.length; i++) {
-    let scoreAddition = 0;
+    let scoreAddition = updatedScore[i].score;
     for (let a = 0; a < attributes.length; a++) {
       let iAttribute = findMemberAttributes(updatedScore[i].pair[0], attributes[a].title, teamList);
       let jAttribute = findMemberAttributes(updatedScore[i].pair[1], attributes[a].title, teamList);
@@ -86,7 +87,13 @@ const findScore = (fishyOne, fishyTwo, currentPairScore) => {
   return pair.score;
 };
 
-// Finds the average score for one specific individual for every member currently in a given group
+/**
+ * Finds the average score for one specific individual for every member currently in a given group
+ * @param  {string} group array of members.
+ * @param  {string} individual team member name.
+ * @param  {[object]} currentPairScore array of score objects.
+ * @return {number} average score for individual member.
+ */
 const findAverageScore = (group, individual, currentPairScore) => {
   let allScores = 0;
   for (let i = 0; i < group.length; i++) {
