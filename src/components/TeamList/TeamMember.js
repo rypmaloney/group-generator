@@ -4,6 +4,7 @@ import uniqid from 'uniqid';
 const TeamMember = (props) => {
   const { teamMember, removeMember, team, setTeam } = props;
   const attributesArray = Object.entries(teamMember.attributes);
+  console.log(attributesArray);
   const [edited, setEdited] = useState('');
   const [editedAttributes, setEditedAttributes] = useState('');
 
@@ -33,7 +34,7 @@ const TeamMember = (props) => {
         <p>
           <strong>{teamMember.name}</strong>
         </p>
-        {edited === teamMember.name ? (
+        {/* {edited === teamMember.name ? (
           <>
             {attributesArray.map(([key, value]) => {
               return (
@@ -50,20 +51,20 @@ const TeamMember = (props) => {
             <button onClick={() => handleSave(teamMember.name)}>Save</button>
             <button onClick={handleCancel}>Cancel</button>
           </>
-        ) : (
-          <>
-            {attributesArray.map(([name, value]) => {
-              return (
-                <div key={uniqid()} className="row">
-                  <p className="attrs" key={uniqid()}>
-                    <strong>{name}:</strong>
-                  </p>
-                  <p className="attrs"> {value}</p>
-                </div>
-              );
-            })}
-          </>
-        )}
+        ) : ( */}
+        <>
+          {attributesArray.map(([name, value]) => {
+            return (
+              <div key={uniqid()} className="row">
+                <p className="attrs" key={uniqid()}>
+                  <strong>{name}:</strong>
+                </p>
+                <p className="attrs"> {value}</p>
+              </div>
+            );
+          })}
+        </>
+        {/* )} */}
         <p></p>
       </div>
       <div
