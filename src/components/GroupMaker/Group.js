@@ -1,10 +1,10 @@
 import './index.scss';
 import uniqid from 'uniqid';
 import GroupMember from './GroupMember';
+import { attributes } from '../../scripts/testGroups';
 
 const Group = (props) => {
-  const { group, prevGroups, team } = props;
-
+  const { group, prevGroups, team, allowHoverbox, attributes } = props;
   return (
     <div className="group">
       {/* OL <p>{i + 1}.</p> */}
@@ -17,6 +17,8 @@ const Group = (props) => {
             prevGroups={prevGroups}
             team={team}
             group={group}
+            allowHoverbox={allowHoverbox}
+            attributes={attributes}
           />
         );
       })}

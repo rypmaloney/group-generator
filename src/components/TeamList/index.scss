@@ -4,7 +4,8 @@
     margin: 0 2em;
     padding: 1rem;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 8px;
+    min-width: 270px;
 
 
 
@@ -25,28 +26,42 @@
 
 }
 
-.delete{
-    font-weight: 200;
-    margin: 0 .5em;
+.delete, .edit{
+    font-weight: 500;
+    margin: 1em .2em 0 .5em;
+
+
 
 }
-.delete:hover{
+.delete:hover, .edit:hover{
     cursor: pointer;
     color: $important-color;
 
 }
-
 
 .team-add{
     padding: 1em 0;
 }
 
 
+.attrs{
+    font-size: x-small;
+}
 
-@media (max-width:540px) { 
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.field-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4px;
+}
+@media (max-width:540px) {
     .team-list {
         margin: 1em auto;
 
     }
   }
-  

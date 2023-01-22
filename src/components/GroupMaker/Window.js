@@ -3,14 +3,24 @@ import Group from './Group';
 import uniqid from 'uniqid';
 
 const Window = (props) => {
-  const { currentGroups, prevGroups, team } = props;
+  const { currentGroups, prevGroups, team, allowHoverbox, attributes } = props;
 
   return (
     <div className="window">
       <div className="current-group-wrapper">
         <div className="current-group-list">
           {currentGroups.map((group, i) => {
-            return <Group group={group} i={i} key={uniqid()} team={team} prevGroups={prevGroups} />;
+            return (
+              <Group
+                group={group}
+                i={i}
+                key={uniqid()}
+                team={team}
+                prevGroups={prevGroups}
+                allowHoverbox={allowHoverbox}
+                attributes={attributes}
+              />
+            );
           })}
         </div>
       </div>

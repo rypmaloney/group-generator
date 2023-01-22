@@ -1,8 +1,18 @@
 import './index.scss';
+import uniqid from 'uniqid';
 
 const Controls = (props) => {
-  let { groupCount, setGroupCount, createGroups, team, currentGroups, setMessage, addToPrev } =
-    props;
+  let {
+    groupCount,
+    setGroupCount,
+    createGroups,
+    team,
+    currentGroups,
+    setMessage,
+    addToPrev,
+    attributes,
+    setAttributes
+  } = props;
 
   const incrementCount = () => {
     if (groupCount < team.length / 2) {
@@ -27,6 +37,12 @@ const Controls = (props) => {
     }
   };
 
+  const handleChange = (index, event) => {
+    const updatedAttributes = [...attributes];
+    updatedAttributes[index].weight = event.target.value;
+    setAttributes(updatedAttributes);
+  };
+
   return (
     <div className="controls">
       <div className="counter">
@@ -37,6 +53,33 @@ const Controls = (props) => {
         <button onClick={incrementCount}>+</button>
         <button onClick={decrementCount}>-</button>
       </div>
+      <div className="counter">
+        <p>
+          <strong>Attributes:</strong>
+        </p>
+        <form className="sliders-panel">
+          {attributes.map((attribute, index) => (
+            <div className="attribute" key={uniqid()}>
+              <label>{attribute.title}</label>
+              <input
+                type="range"
+                min="0"
+                max="5"
+                value={attribute.weight}
+                className="slider"
+                onChange={(event) => handleChange(index, event)}
+              />
+              <p>{attribute.weight}</p>
+            </div>
+          ))}
+        </form>
+
+        <p className="control-info">
+          A higher number will make it less likely for members with matching attribute to be put in
+          the same group. <br></br>Select zero and that attribute will not affect the outcome.
+        </p>
+      </div>
+
       <button className="primary-btn" onClick={createGroups}>
         {currentGroups[0].length > 0 ? 'Create New Groups' : 'Generate Groups'}
       </button>
