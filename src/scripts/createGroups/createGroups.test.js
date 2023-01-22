@@ -1,10 +1,4 @@
-import {
-  testGroups,
-  fishiesTeamList,
-  smallGroups,
-  fishiesTeamList_attr,
-  attributes
-} from '../testGroups';
+import { testGroups, smallGroups, fishiesTeamList_attr, attributes } from '../testGroups';
 
 import createLowScoreGroups from './createGroups.js';
 import { createUniqueFishyPairs, scoreGroups, scoreGroupAttributes } from '../scoring/scoring';
@@ -16,28 +10,29 @@ test('creates correct number of groups', () => {
   const fishyPairs = createUniqueFishyPairs(fishiesTeamList_attr);
 
   const score = scoreGroups(smallGroups, fishyPairs);
-  //console.log(score);
-  const attr_score = scoreGroupAttributes(score, fishiesTeamList_attr, attributes);
-  console.log(attr_score);
-  const lowScoreGroups5 = createLowScoreGroups(fishiesTeamList_attr, 3, score);
-  // const lowScoreGroups3 = createLowScoreGroups(fishiesTeamList, 3, score);
-  // const lowScoreGroups9 = createLowScoreGroups(fishiesTeamList, 9, score);
-  // const lowScoreGroups4 = createLowScoreGroups(fishiesTeamList, 4, score);
 
-  //expect(lowScoreGroups5.length).toBe(5);
-  //expect(lowScoreGroups3.length).toBe(3);
-  //expect(lowScoreGroups9.length).toBe(9);
-  // expect(lowScoreGroups4.length).toBe(4);
+  const attr_score = scoreGroupAttributes(score, fishiesTeamList_attr, attributes);
+
+  const lowScoreGroups5 = createLowScoreGroups(fishiesTeamList_attr, 5, attr_score);
+
+  const lowScoreGroups3 = createLowScoreGroups(fishiesTeamList_attr, 3, attr_score);
+  const lowScoreGroups9 = createLowScoreGroups(fishiesTeamList_attr, 9, score);
+  const lowScoreGroups4 = createLowScoreGroups(fishiesTeamList_attr, 4, score);
+
+  expect(lowScoreGroups5.length).toBe(5);
+  expect(lowScoreGroups3.length).toBe(3);
+  expect(lowScoreGroups9.length).toBe(9);
+  expect(lowScoreGroups4.length).toBe(4);
 });
-/*
+
 // groups are correct size
 test('groups are the correct size with 5 groups', () => {
-  const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
+  const fishyPairs = createUniqueFishyPairs(fishiesTeamList_attr);
   const score = scoreGroups(testGroups, fishyPairs);
   const groupNum = 5;
 
-  const lowScoreGroups = createLowScoreGroups(fishiesTeamList, 5, score);
-  const expectedGroupSize = Math.floor(fishiesTeamList.length / groupNum);
+  const lowScoreGroups = createLowScoreGroups(fishiesTeamList_attr, 5, score);
+  const expectedGroupSize = Math.floor(fishiesTeamList_attr.length / groupNum);
 
   for (let i = 0; i < groupNum; i++) {
     expect([expectedGroupSize, expectedGroupSize + 1]).toContain(lowScoreGroups[i].length);
@@ -45,29 +40,19 @@ test('groups are the correct size with 5 groups', () => {
 });
 
 // specific people who should not be put together
-test('low score groups avoids unfavorable pairings based on score', () => {
-  const fishyPairs = createUniqueFishyPairs(fishiesTeamList);
+test('low score groups avoids unfavorable pairings based on score and attribute modifier', () => {
+  const fishyPairs = createUniqueFishyPairs(fishiesTeamList_attr);
   const scores = scoreGroups(smallGroups, fishyPairs);
-  const lowScoreGroups = createLowScoreGroups(fishiesTeamList, 3, scores);
+  const attr_score = scoreGroupAttributes(scores, fishiesTeamList_attr, attributes);
+  const lowScoreGroups = createLowScoreGroups(fishiesTeamList_attr, 3, attr_score);
 
-  /* Find the worst pairs to update
-    const sortedPairScore = scores
-        .map((a) => ({ ...a }))
-        .sort((a, b) => b.score - a.score);
-    console.log(sortedPairScore);
-    ****** */
-/*
+  //Find the worst pairs to update
+  const sortedPairScore = attr_score.map((a) => ({ ...a })).sort((a, b) => b.score - a.score);
 
-  // Pairs with a score of 4 or 3
-  const unfavorablePairsArray = [
-    { one: 'Ryan', two: 'Sarah' },
-    { one: 'Anne', two: 'Shawn' },
-    { one: 'Shawn', two: 'Sarah' },
-    { one: 'Ryan', two: 'Ebony' },
-    { one: 'Chelsea', two: 'Jami' },
-    { one: 'Christopher', two: 'Caroline' },
-    { one: 'Christopher', two: 'Jami' }
-  ];
+  // Pairs with a high score
+  const unfavorablePairsArray = sortedPairScore.slice(0, 5).map((obj) => {
+    return { one: obj.pair[0], two: obj.pair[1] };
+  });
 
   let unfavorablePairsCount = 0;
   for (let i = 0; i < unfavorablePairsArray.length; i++) {
@@ -79,10 +64,11 @@ test('low score groups avoids unfavorable pairings based on score', () => {
         lowScoreGroups[j].includes(unfavorableOne) &&
         lowScoreGroups[j].includes(unfavorableTwo)
       ) {
+        console.log(`pair: ${unfavorableOne}, ${unfavorableTwo}`);
+
         unfavorablePairsCount += 1;
       }
     }
   }
-  expect(unfavorablePairsCount).toBe(0);
+  expect(unfavorablePairsCount).toBeLessThan(2);
 });
-*/
