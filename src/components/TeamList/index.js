@@ -93,7 +93,7 @@ const TeamList = (props) => {
       </form>
       <hr></hr>
       <h2>Team List</h2>
-      {/* {team.map((t) => {
+      {team.map((t) => {
         return (
           <TeamMember
             teamMember={t}
@@ -103,7 +103,7 @@ const TeamList = (props) => {
             setTeam={setTeam}
           />
         );
-      })} */}
+      })}
       <form className="team-add" onSubmit={addMember}>
         <p>
           <strong>Add Team Member:</strong>
