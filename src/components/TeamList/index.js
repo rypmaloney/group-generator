@@ -64,6 +64,7 @@ const TeamList = (props) => {
   return (
     <div className="team-list">
       <h2>Attributes</h2>
+      {/*
       {attributes.map((attr) => {
         return (
           <div className="team-member" key={uniqid()}>
@@ -124,7 +125,7 @@ const TeamList = (props) => {
           </div>
         ))}
         <button type="submit">Submit</button>
-      </form>
+      </form> */}
     </div>
   );
 };
