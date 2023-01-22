@@ -1,5 +1,6 @@
 import TeamMember from './TeamMember';
 import './index.scss';
+import uniqid from 'uniqid';
 import { useState } from 'react';
 
 const TeamList = (props) => {
@@ -65,7 +66,7 @@ const TeamList = (props) => {
       <h2>Attributes</h2>
       {attributes.map((attr) => {
         return (
-          <div className="team-member" key={attr.title}>
+          <div className="team-member" key={uniqid()}>
             <p>{attr.title}</p>{' '}
             <div
               onClick={(e) => {
@@ -96,7 +97,7 @@ const TeamList = (props) => {
         return (
           <TeamMember
             teamMember={t}
-            key={t.name}
+            key={uniqid()}
             removeMember={removeMember}
             team={team}
             setTeam={setTeam}
@@ -116,10 +117,10 @@ const TeamList = (props) => {
             }}
             value={newMember}></input>
         </div>
-        {keyArray.map((key, index) => (
-          <div className="field-row" key={index}>
-            <label>{key}: </label>
-            <input type="text" name={key} onChange={handleChange} />
+        {keyArray.map((name) => (
+          <div className="field-row" key={uniqid()}>
+            <label>{name}: </label>
+            <input type="text" name={name} onChange={handleChange} />
           </div>
         ))}
         <button type="submit">Submit</button>

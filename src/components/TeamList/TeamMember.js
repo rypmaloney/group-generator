@@ -35,14 +35,14 @@ const TeamMember = (props) => {
         </p>
         {edited === teamMember.name ? (
           <>
-            {attributesArray.map(([key, value]) => {
+            {attributesArray.map(([name, value]) => {
               return (
                 <div key={uniqid()} className="field-row">
-                  <p className="attrs">{key}: </p>
+                  <p className="attrs">{name}: </p>
                   <input
                     type="text"
-                    value={editedAttributes[key]}
-                    onChange={(e) => handleEditAttribute(key, e.target.value)}
+                    value={editedAttributes[name]}
+                    onChange={(e) => handleEditAttribute(name, e.target.value)}
                   />
                 </div>
               );
