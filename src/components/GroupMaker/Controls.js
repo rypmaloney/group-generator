@@ -1,4 +1,5 @@
 import './index.scss';
+import uniqid from 'uniqid';
 
 const Controls = (props) => {
   let {
@@ -58,7 +59,7 @@ const Controls = (props) => {
         </p>
         <form className="sliders-panel">
           {attributes.map((attribute, index) => (
-            <div className="attribute" key={attribute.title}>
+            <div className="attribute" key={uniqid()}>
               <label>{attribute.title}</label>
               <input
                 type="range"

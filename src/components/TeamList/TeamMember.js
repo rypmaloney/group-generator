@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import uniqid from 'uniqid';
 
 const TeamMember = (props) => {
   const { teamMember, removeMember, team, setTeam } = props;
@@ -36,7 +37,7 @@ const TeamMember = (props) => {
           <>
             {attributesArray.map(([key, value]) => {
               return (
-                <div key={key} className="field-row">
+                <div key={uniqid()} className="field-row">
                   <p className="attrs">{key}: </p>
                   <input
                     type="text"
@@ -53,7 +54,7 @@ const TeamMember = (props) => {
           <>
             {attributesArray.map(([key, value]) => {
               return (
-                <div key={key} className="row">
+                <div key={uniqid()} className="row">
                   <p className="attrs" key={key}>
                     <strong>{key}:</strong>
                   </p>
