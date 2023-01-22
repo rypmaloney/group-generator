@@ -34,38 +34,23 @@ const TeamMember = (props) => {
         <p>
           <strong>{teamMember.name}</strong>
         </p>
-        {/* {edited === teamMember.name ? (
-          <>
-            {attributesArray.map(([key, value]) => {
-              return (
-                <div key={key} className="field-row">
-                  <p className="attrs">{key}: </p>
-                  <input
-                    type="text"
-                    value={editedAttributes[key] || ''}
-                    onChange={(e) => handleEditAttribute(key, e.target.value)}
-                  />
-                </div>
-              );
-            })}
-            <button onClick={() => handleSave(teamMember.name)}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
-          </>
-        ) : ( */}
+        {/* {edited === teamMember.name ? ( */}
         <>
-          {attributesArray.map(([name, value]) => {
+          {attributesArray.map(([key, value]) => {
             return (
-              <div key={uniqid()} className="row">
-                <p className="attrs" key={uniqid()}>
-                  <strong>{name}:</strong>
-                </p>
-                <p className="attrs"> {value}</p>
+              <div key={key} className="field-row">
+                <p className="attrs">{key}: </p>
+                <input
+                  type="text"
+                  value={editedAttributes[key] || ''}
+                  onChange={(e) => handleEditAttribute(key, e.target.value)}
+                />
               </div>
             );
           })}
+          <button onClick={() => handleSave(teamMember.name)}>Save</button>
+          <button onClick={handleCancel}>Cancel</button>
         </>
-        {/* )} */}
-        <p></p>
       </div>
       <div
         onClick={(e) => {
