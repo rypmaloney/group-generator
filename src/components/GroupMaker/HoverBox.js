@@ -4,22 +4,27 @@ import { useEffect, useState } from 'react';
 const HoverBox = (props) => {
   const { member, groupPairScores, attribubtePairScores } = props;
   const [avg, setAvg] = useState(0);
+  const [attAvg, setAttAvg] = useState(0);
 
-  const calculateAvg = () => {
+  const calculateAvg = (group, att = false) => {
     let total = 0;
-    for (let i = 0; i < groupPairScores.length; i++) {
-      total += groupPairScores[i].score;
+    for (let i = 0; i < group.length; i++) {
+      total += group[i].score;
     }
 
-    let groupAvg = total / groupPairScores.length;
+    let groupAvg = total / group.length;
     let rounded = Math.round(100 * groupAvg) / 100;
-
-    setAvg(rounded);
+    if (att) {
+      setAttAvg(rounded);
+    } else {
+      setAvg(rounded);
+    }
   };
 
   useEffect(() => {
-    calculateAvg();
-  }, [groupPairScores]);
+    calculateAvg(groupPairScores);
+    calculateAvg(attribubtePairScores, true);
+  }, [groupPairScores, attribubtePairScores]);
 
   return (
     <div className="hover-box">
@@ -43,6 +48,7 @@ const HoverBox = (props) => {
           </p>
         );
       })}
+      <p className="highlight">Avg: {attAvg}</p>
     </div>
   );
 };

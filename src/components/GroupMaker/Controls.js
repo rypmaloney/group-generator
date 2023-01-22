@@ -47,6 +47,14 @@ const Controls = (props) => {
     <div className="controls">
       <div className="counter">
         <p>
+          <strong>Number of Groups:</strong>
+        </p>
+        <div className="highlight">{groupCount}</div>
+        <button onClick={incrementCount}>+</button>
+        <button onClick={decrementCount}>-</button>
+      </div>
+      <div className="counter">
+        <p>
           <strong>Attributes:</strong>
         </p>
         <form className="sliders-panel">
@@ -71,14 +79,7 @@ const Controls = (props) => {
           the same group. Select zero to have that attribute not affect the outcome.
         </p>
       </div>
-      <div className="counter">
-        <p>
-          <strong>Number of Groups:</strong>
-        </p>
-        <div className="highlight">{groupCount}</div>
-        <button onClick={incrementCount}>+</button>
-        <button onClick={decrementCount}>-</button>
-      </div>
+
       <button className="primary-btn" onClick={createGroups}>
         {currentGroups[0].length > 0 ? 'Create New Groups' : 'Generate Groups'}
       </button>
