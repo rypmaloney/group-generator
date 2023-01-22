@@ -4,7 +4,8 @@ import uniqid from 'uniqid';
 const TeamMember = (props) => {
   const { teamMember, removeMember, team, setTeam } = props;
   const attributesArray = Object.entries(teamMember.attributes);
-  console.log(attributesArray);
+  const attributeKeys = Object.keys(teamMember.attributes);
+
   const [edited, setEdited] = useState('');
   const [editedAttributes, setEditedAttributes] = useState('');
 
@@ -34,23 +35,38 @@ const TeamMember = (props) => {
         <p>
           <strong>{teamMember.name}</strong>
         </p>
-        {/* {edited === teamMember.name ? ( */}
-        <>
-          {attributesArray.map(([key, value]) => {
-            return (
-              <div key={key} className="field-row">
-                <p className="attrs">{key}: </p>
-                <input
-                  type="text"
-                  value={editedAttributes[key] || ''}
-                  onChange={(e) => handleEditAttribute(key, e.target.value)}
-                />
-              </div>
-            );
-          })}
-          <button onClick={() => handleSave(teamMember.name)}>Save</button>
-          <button onClick={handleCancel}>Cancel</button>
-        </>
+        {edited === teamMember.name ? (
+          <>
+            {attributesArray.map(([key, value]) => {
+              return (
+                <div key={key} className="field-row">
+                  <p className="attrs">{key}: </p>
+                  <input
+                    type="text"
+                    value={editedAttributes[key] || ''}
+                    onChange={(e) => handleEditAttribute(key, e.target.value)}
+                  />
+                </div>
+              );
+            })}
+            <button onClick={() => handleSave(teamMember.name)}>Save</button>
+            <button onClick={handleCancel}>Cancel</button>
+          </>
+        ) : (
+          <>
+            {attributeKeys.map((key) => {
+              return (
+                <div key={uniqid()} className="row">
+                  <p className="attrs" key={uniqid()}>
+                    <strong>{key}:</strong>
+                  </p>
+                  <p className="attrs"> {teamMember.attributes[key]}</p>
+                </div>
+              );
+            })}
+          </>
+        )}
+        <p></p>
       </div>
       <div
         onClick={(e) => {
