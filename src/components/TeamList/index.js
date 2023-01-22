@@ -64,7 +64,6 @@ const TeamList = (props) => {
   return (
     <div className="team-list">
       <h2>Attributes</h2>
-      {/*
       {attributes.map((attr) => {
         return (
           <div className="team-member" key={uniqid()}>
@@ -94,7 +93,7 @@ const TeamList = (props) => {
       </form>
       <hr></hr>
       <h2>Team List</h2>
-      {team.map((t) => {
+      {/* {team.map((t) => {
         return (
           <TeamMember
             teamMember={t}
@@ -104,7 +103,7 @@ const TeamList = (props) => {
             setTeam={setTeam}
           />
         );
-      })}
+      })} */}
       <form className="team-add" onSubmit={addMember}>
         <p>
           <strong>Add Team Member:</strong>
@@ -125,7 +124,7 @@ const TeamList = (props) => {
           </div>
         ))}
         <button type="submit">Submit</button>
-      </form> */}
+      </form>
     </div>
   );
 };
