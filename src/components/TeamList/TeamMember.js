@@ -52,11 +52,11 @@ const TeamMember = (props) => {
           </>
         ) : (
           <>
-            {attributesArray.map(([key, value]) => {
+            {attributesArray.map(([name, value]) => {
               return (
                 <div key={uniqid()} className="row">
-                  <p className="attrs" key={key}>
-                    <strong>{key}:</strong>
+                  <p className="attrs" key={uniqid()}>
+                    <strong>{name}:</strong>
                   </p>
                   <p className="attrs"> {value}</p>
                 </div>
