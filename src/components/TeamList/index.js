@@ -118,7 +118,7 @@ const TeamList = (props) => {
             value={newMember}></input>
         </div>
         {keyArray.map((name) => (
-          <div className="field-row" key={uniqid()}>
+          <div className="field-row" key={name}>
             <label>{name}: </label>
             <input type="text" name={name} onChange={handleChange} />
           </div>
