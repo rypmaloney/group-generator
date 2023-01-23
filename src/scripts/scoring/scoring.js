@@ -47,7 +47,7 @@ const scoreGroupAttributes = (prevPairScore, teamList, attributes) => {
       let iAttribute = findMemberAttributes(updatedScore[i].pair[0], attributes[a].title, teamList);
       let jAttribute = findMemberAttributes(updatedScore[i].pair[1], attributes[a].title, teamList);
 
-      if (iAttribute === jAttribute) {
+      if (iAttribute.toLowerCase() === jAttribute.toLowerCase()) {
         // members' attribute values for this attribute match
         if (attributes[a].weight > 0) {
           scoreAddition === 0 ? (scoreAddition = 1) : null;
